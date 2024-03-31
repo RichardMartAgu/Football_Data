@@ -1,4 +1,4 @@
-package com.example.football_data;
+package com.example.football_data.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

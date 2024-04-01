@@ -1,6 +1,6 @@
-import com.example.football_data.model.Standings;
+package com.example.football_data.service;
+
 import com.example.football_data.model.Team;
-import com.example.football_data.service.FootballDataAPI;
 import io.reactivex.Observable;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -8,11 +8,11 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Service {
+public class FootballService {
     private String BASE_URL = "https://api.football-data.org";
     private FootballDataAPI footballDataAPI;
 
-    public Service() {
+    public FootballService() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
         OkHttpClient client = new OkHttpClient.Builder()
@@ -29,10 +29,10 @@ public class Service {
         this.footballDataAPI = retrofit.create(FootballDataAPI.class);
     }
 
-    public Observable<Team> getStandings(String competition){
-        return this.footballDataAPI.getStandings(competition).flatMapIterable(standings->standings)
-                .map(standings->standings.getTables()).flatMapIterable(tables->tables)
-                .map(tables->tables.getTeam());
+    public Observable<Team> getStandings(String competition) {
+        return this.footballDataAPI.getStandings(competition).flatMapIterable(standings -> standings)
+                .map(standings -> standings.getTables()).flatMapIterable(tables -> tables)
+                .map(tables -> tables.getTeam());
     }
 
 

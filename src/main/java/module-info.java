@@ -6,7 +6,6 @@ module com.example.football_data {
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    requires eu.hansolo.tilesfx;
     requires retrofit2;
     requires rxjava;
     requires okhttp3;

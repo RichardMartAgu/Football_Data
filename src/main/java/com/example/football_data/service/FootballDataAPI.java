@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface FootballDataAPI {
 
-    @GET ("api.football-data.org/v4/{competition}/standings")
+    @GET("api.football-data.org/v4/{competition}/standings")
     Observable<List<Standings>> getStandings(@Path("competition") String PD);
 
 }

@@ -14,7 +14,7 @@ public class Table {
     private int position;
     private Team team;
     private int playedGames;
-     private List<String> forms;
+    private List<String> forms;
     private int won;
     private int draw;
     private int lost;
